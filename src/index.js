@@ -1,7 +1,6 @@
 module.exports = function toReadable (number) {
   number += '';
   let result = '';
-  let hundred = 0;
   let list = {
               0: 'zero',
               1: 'one',
