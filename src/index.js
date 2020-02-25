@@ -1,4 +1,4 @@
-function toReadable (number) {
+module.exports = function toReadable (number) {
   number += '';
   let result = '';
   let hundred = 0;
