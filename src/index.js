@@ -3,6 +3,7 @@ module.exports = function toReadable (number) {
   let result = '';
   let hundred = 0;
   let list = {
+              0: 'zero',
               1: 'one',
               2: 'two',
               3: 'three',
@@ -33,25 +34,27 @@ module.exports = function toReadable (number) {
             };
 
     if (number.length === 3) {
-        result += list[number[0]] + ' hundred ';
+        result += list[number[0]] + ' hundred';
       if (number[1] == 1) {
-          result += list[number[1] + number[2]];
+          result += ' ' + list[number[1] + number[2]];
       } else if (number[1] == 0) {
           result;
       } else {
-          result += list[number[1] * 10] + ' ';
+          result += ' ' + list[number[1] * 10];
       }
       if (number[2] != 0 && number[1] != 1) {
-        result += list[number[2]];
+        result += ' ' + list[number[2]];
       }
     } else if (number.length === 2) {
         if (number[0] == 1 || number[1] == 0) {
           result += list[number[0] + number[1]];
         } else {
-            result += list[number[0] * 10] + ' ';
-            result += list[number[1]];
+            result += list[number[0] * 10];
+            result += ' ' + list[number[1]];
         }
     } else if (number.length === 1) {
+        result += list[number[0]];
+    } else if (number[0] == 0) {
         result += list[number[0]];
     }
 
